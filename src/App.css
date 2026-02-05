@@ -7,4 +7,216 @@
 
 section {
   width: 100%;
+  padding: 80px 20px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  font-family: serif;
+}
+
+.section-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.section-content p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.section-content strong {
+  color: #333;
+}
+
+/* Intro Section */
+.intro-section {
+  padding: 100px 20px;
+  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-section h1 {
+  font-size: 4rem;
+  margin: 0 0 10px 0;
+  font-family: serif;
+}
+
+.intro-section p {
+  font-size: 1.5rem;
+  font-style: italic;
+  margin: 0;
+}
+
+.intro-details {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.intro-details span {
+  display: inline-block;
+}
+
+.divider {
+  margin: 0 15px;
+}
+
+/* Ceremony & Party */
+.ceremony-section, .gift-section {
+  background-color: #fdfbfb;
+}
+
+.party-section, .rsvp-section {
+  background-color: #fff;
+}
+
+/* Gift Section */
+.gift-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.gift-button {
+  padding: 10px 20px;
+  border: 1px solid #333;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.gift-button:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+/* RSVP Section */
+.rsvp-form {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  font-family: inherit;
+}
+
+.form-group textarea {
+  min-height: 100px;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.checkbox-group input {
+  margin-right: 10px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #555;
+}
+
+.submitted-message {
+  padding: 40px;
+  background-color: #fdfbfb;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  section {
+    padding: 60px 20px;
+  }
+
+  section h2 {
+    font-size: 2rem;
+  }
+
+  .intro-section {
+    padding: 60px 20px;
+    min-height: 50vh;
+  }
+
+  .intro-section h1 {
+    font-size: 2.8rem;
+  }
+
+  .intro-section p {
+    font-size: 1.2rem;
+  }
+
+  .intro-details {
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .gift-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .gift-button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro-section h1 {
+    font-size: 2.2rem;
+  }
+  
+  section {
+    padding: 40px 15px;
+  }
 }

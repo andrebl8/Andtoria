@@ -1,21 +1,16 @@
 import React from 'react';
+import content from '../data/weddingContent.json';
 
 const GiftSection: React.FC = () => {
+  const { gifts } = content;
   return (
-    <section className="gift-section" style={{
-      padding: '80px 20px',
-      textAlign: 'center',
-      backgroundColor: '#fdfbfb'
-    }}>
-      <h2 style={{ fontSize: '2.5rem', marginBottom: '30px', fontFamily: 'serif' }}>Gifts</h2>
-      <div style={{ maxWidth: '600px', margin: '0 auto' }}>
-        <p style={{ fontSize: '1.1rem', color: '#555', marginBottom: '20px' }}>
-          Your presence at our wedding is the greatest gift of all. However, if you wish to honor us with a gift, 
-          we have a registry at the following store or a honeymoon fund contribution would be greatly appreciated.
-        </p>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '20px' }}>
-          <a href="#" style={{ padding: '10px 20px', border: '1px solid #333', color: '#333', textDecoration: 'none' }}>View Registry</a>
-          <a href="#" style={{ padding: '10px 20px', border: '1px solid #333', color: '#333', textDecoration: 'none' }}>Honeymoon Fund</a>
+    <section className="gift-section">
+      <h2>{gifts.title}</h2>
+      <div className="section-content">
+        <p>{gifts.description}</p>
+        <div className="gift-links">
+          <a href={gifts.registryUrl} className="gift-button">{gifts.registryButton}</a>
+          <a href={gifts.honeymoonUrl} className="gift-button">{gifts.honeymoonButton}</a>
         </div>
       </div>
     </section>
