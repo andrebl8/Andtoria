@@ -1,4 +1,9 @@
 {
+  "letter": {
+    "envelopeText": "André & Victoria",
+    "subText": "August 24, 2026",
+    "scrollPrompt": "Scroll to Open"
+  },
   "intro": {
     "names": "André & Victoria",
     "tagline": "Are getting married!",
