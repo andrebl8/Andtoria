@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="wedding-app">
       <LetterSection />
-      <div className="scroll-spacer" style={{ height: '100vh' }}></div>
+      <div className="scroll-spacer" style={{ height: '150vh' }}></div>
       <IntroSection />
       <CeremonySection />
       <PartySection />
