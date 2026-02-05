@@ -8,6 +8,17 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- Hidden form for Netlify form detection -->
+    <form name="rsvp" data-netlify="true" hidden>
+      <input type="text" name="name" />
+      <select name="attending">
+        <option value="yes"></option>
+        <option value="no"></option>
+      </select>
+      <input type="checkbox" name="plusOne" />
+      <input type="text" name="plusOneName" />
+      <textarea name="allergies"></textarea>
+    </form>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
