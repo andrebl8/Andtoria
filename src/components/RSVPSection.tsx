@@ -41,7 +41,7 @@ const RSVPSection: React.FC = () => {
       <section className="rsvp-section">
         <h2>{rsvp.title}</h2>
         <div className="submitted-message">
-          <h3 style={{ fontSize: '1.8rem', color: '#333', marginBottom: '15px' }}>{rsvp.thankYouTitle}</h3>
+          <h3 style={{ fontSize: '1.8rem', color: '#30364F', marginBottom: '15px' }}>{rsvp.thankYouTitle}</h3>
           <p>
             {rsvp.thankYouMessage}
           </p>

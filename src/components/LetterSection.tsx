@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { PerspectiveCamera, Environment, Float } from '@react-three/drei';
+import { PerspectiveCamera, Float } from '@react-three/drei';
 import confetti from 'canvas-confetti';
 import content from '../data/weddingContent.json';
 import ThreeLetter from './ThreeLetter';
@@ -37,7 +37,7 @@ const LetterSection: React.FC = () => {
       const count = 200;
       const defaults = {
         origin: { y: 0.7 },
-        colors: ['#f4ecd8', '#e6dec5', '#d4af37', '#ffffff'] // Wedding-themed colors
+        colors: ['#30364F', '#D6C7AE', '#F2E9DA', '#E4D7C3', '#C5B69C', '#FAF7F2'] // Updated to natural palette
       };
 
       const fire = (particleRatio: number, opts: any) => {
@@ -90,11 +90,23 @@ const LetterSection: React.FC = () => {
       <div className="canvas-container">
         <Canvas shadows>
           <PerspectiveCamera makeDefault position={[0, 0, cameraZ]} fov={50} />
-          <ambientLight intensity={0.5} />
-          <pointLight position={[10, 10, 10]} intensity={1} castShadow />
-          <spotLight position={[-10, 10, 10]} angle={0.15} penumbra={1} intensity={1} />
-          <Environment preset="city" />
-          
+          {/* Brighter, softer fill so the envelope doesn't go muddy */}
+          <ambientLight intensity={1.0} />
+          <hemisphereLight intensity={0.75} color="#ffffff" groundColor="#d8cfc2" />
+
+          {/* One strong key light + a gentler rim */}
+          <directionalLight
+            position={[6, 8, 10]}
+            intensity={2.2}
+            castShadow
+            shadow-mapSize-width={2048}
+            shadow-mapSize-height={2048}
+          />
+          <directionalLight position={[-6, 4, -6]} intensity={0.6} />
+
+          {/* The HDRI is great for reflections, but can darken perceived albedo if it's too strong */}
+          {/*<Environment preset="studio" environmentIntensity={0.35} />*/}
+
           <Float 
             speed={2} 
             rotationIntensity={0.5} 

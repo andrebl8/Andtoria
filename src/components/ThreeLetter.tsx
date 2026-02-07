@@ -44,13 +44,12 @@ const ThreeLetter: React.FC<ThreeLetterProps> = ({ scrollProgress, content, isMo
       envelopeRef.current.rotation.y = Math.sin(scrollProgress * Math.PI) * 0.1;
     }
   });
-
   return (
     <group ref={envelopeRef}>
       {/* Envelope Back */}
       <mesh position={[0, 0, 0]}>
         <planeGeometry args={[5, 3.5]} />
-        <meshStandardMaterial color="#f4ecd8" side={THREE.DoubleSide} />
+        <meshStandardMaterial color="#F2E9DA" side={THREE.DoubleSide} />
       </mesh>
 
       {/* Envelope Front (Left) */}
@@ -65,7 +64,7 @@ const ThreeLetter: React.FC<ThreeLetterProps> = ({ scrollProgress, content, isMo
             ]), 3]}
           />
         </bufferGeometry>
-        <meshStandardMaterial color="#e6dec5" side={THREE.DoubleSide} />
+        <meshStandardMaterial color="#D6C7AE" side={THREE.DoubleSide} />
       </mesh>
 
       {/* Envelope Front (Right) */}
@@ -80,7 +79,7 @@ const ThreeLetter: React.FC<ThreeLetterProps> = ({ scrollProgress, content, isMo
             ]), 3]}
           />
         </bufferGeometry>
-        <meshStandardMaterial color="#e6dec5" side={THREE.DoubleSide} />
+        <meshStandardMaterial color="#D6C7AE" side={THREE.DoubleSide} />
       </mesh>
 
       {/* Envelope Front (Bottom) */}
@@ -95,7 +94,7 @@ const ThreeLetter: React.FC<ThreeLetterProps> = ({ scrollProgress, content, isMo
             ]), 3]}
           />
         </bufferGeometry>
-        <meshStandardMaterial color="#f0e6cc" side={THREE.DoubleSide} />
+        <meshStandardMaterial color="#C5B69C" side={THREE.DoubleSide} />
       </mesh>
 
       {/* Envelope Flap */}
@@ -111,7 +110,7 @@ const ThreeLetter: React.FC<ThreeLetterProps> = ({ scrollProgress, content, isMo
               ]), 3]}
             />
           </bufferGeometry>
-          <meshStandardMaterial color="#e6dec5" side={THREE.DoubleSide} />
+          <meshStandardMaterial color="#E4D7C3" side={THREE.DoubleSide} />
         </mesh>
       </group>
 
@@ -119,23 +118,29 @@ const ThreeLetter: React.FC<ThreeLetterProps> = ({ scrollProgress, content, isMo
       <group ref={paperRef} position={[0, 0, 0.01]}>
         <mesh>
           <planeGeometry args={[4.5, 3.2]} />
-          <meshStandardMaterial color="white" />
+          <meshStandardMaterial
+            color="#FAF7F2"
+            transparent
+            opacity={0}
+            colorWrite={false}
+          />
           <Html
             transform
             occlude
             distanceFactor={5}
-            position={[0, 0, 0.01]}
+            position={[0, 0.5, 0.01]}
           >
-            <div className="three-paper-content" style={{
-              opacity: Math.min(scrollProgress * 10, 1),
-              transition: 'opacity 0.2s'
-            }}>
-              <h2>
-                {content.envelopeText}
-              </h2>
-              <p>
-                {content.subText}
-              </p>
+            <div
+              className="three-paper-content"
+              style={{
+                // Start showing when the letter is ~80% open (scrollProgress ≈ 0.7 based on paper slide window 0.3→0.8)
+                opacity: Math.max(0, (scrollProgress - 0.7) * 10, 1),
+                //opacity: Math.max(0, Math.min((scrollProgress - 0.7) * 10, 1)),
+                transition: 'opacity 0.2s',
+              }}
+            >
+              <h2>{content.envelopeText}</h2>
+              <p>{content.subText}</p>
             </div>
           </Html>
         </mesh>
