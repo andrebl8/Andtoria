@@ -11,7 +11,18 @@ const IntroSection: React.FC<IntroSectionProps> = ({ guestName }) => {
     <section className="intro-section">
       <div className="section-content">
         <p className="guest-greeting">
-          Kjære <span className="guest-name">{guestName}</span>
+          Kjære {guestName?.includes(' & ') ? (
+            <span className="guest-name multi-line">
+              {guestName.split(' & ').map((part, index, array) => (
+                <React.Fragment key={index}>
+                  <span>{part}</span>
+                  {index < array.length - 1 && <span className="ampersand">&</span>}
+                </React.Fragment>
+              ))}
+            </span>
+          ) : (
+            <span className="guest-name">{guestName}</span>
+          )}
         </p>
         <div className="ingensteds-title">
           <h1>{intro.names}</h1>
