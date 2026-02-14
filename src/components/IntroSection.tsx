@@ -10,7 +10,7 @@ const IntroSection: React.FC<IntroSectionProps> = ({ guestName }) => {
   return (
     <section className="intro-section">
       <p className="guest-greeting">
-        Kjære gjest: <span className="guest-name">{guestName}</span>
+        Kjære <span className="guest-name">{guestName}</span>
       </p>
       <div className="ingensteds-title">
         <h1>{intro.names}</h1>
