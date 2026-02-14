@@ -57,6 +57,14 @@
   max-width: 550px;
 }
 
+.guest-greeting.multi-line {
+  gap: 15px;
+}
+
+.guest-greeting.multi-line .guest-name {
+  margin-left: 0;
+}
+
 .guest-name {
   font-style: italic;
   font-weight: 700;
@@ -66,7 +74,7 @@
   line-height: 1;
 }
 
-.guest-name.multi-line {
+.multi-line {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
@@ -77,8 +85,9 @@
   font-size: 0.75em;
   font-weight: 400;
   font-style: italic;
-  margin: 2px 0;
+  margin: 8px 12px;
   opacity: 0.7;
+  display: inline-block;
 }
 
 
@@ -301,6 +310,55 @@ section h2 {
 .section-content strong {
   color: var(--primary);
   font-weight: 700;
+}
+
+/* Landing Section */
+.landing-section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  padding: 0;
+  text-align: center;
+}
+
+.landing-content {
+  /*padding-bottom: 100px;*/
+}
+
+.landing-content h1 {
+  font-size: 5rem;
+  font-weight: 300;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin: 0;
+  line-height: 1.2;
+  padding: 0 20px;
+}
+
+.landing-content h3 {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scroll-indicator .arrow {
+  font-size: 2rem;
+  animation: bounce 2s infinite;
 }
 
 /* Intro Section */
@@ -541,6 +599,14 @@ section h2 {
       url('/dodo-on-left.jpg');
   }
 
+  .landing-content {
+    padding-bottom: 220px;
+  }
+  .landing-content h1 {
+    font-size: 2.5rem;
+    letter-spacing: 0.1em;
+  }
+
   section h2 {
     font-size: 2.2rem;
   }
@@ -558,6 +624,10 @@ section h2 {
     font-size: 1.4rem !important;
     /*margin: 0 auto 25px auto !important;*/
     margin-bottom: 25px !important;
+  }
+
+  .guest-greeting.multi-line {
+    gap: 10px;
   }
 
   .guest-name {

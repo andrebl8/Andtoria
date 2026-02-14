@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import './App.css'
 import LetterSection from './components/LetterSection'
+import LandingSection from './components/LandingSection'
 import IntroSection from './components/IntroSection'
 import CeremonySection from './components/CeremonySection'
 import PartySection from './components/PartySection'
@@ -28,6 +29,7 @@ function App() {
     <div className="wedding-app">
       {/* <LetterSection guestName={joinedGuestNames} />
       <div className="scroll-spacer" style={{ height: '150vh' }}></div> */}
+      <LandingSection />
       <IntroSection guestName={joinedGuestNames} />
       <CeremonySection />
       <PartySection />

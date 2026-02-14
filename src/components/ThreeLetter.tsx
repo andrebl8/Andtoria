@@ -151,7 +151,14 @@ const ThreeLetter: React.FC<ThreeLetterProps> = ({ scrollProgress, content, isMo
               }}>
                 Kjære {guestName || 'gjest'},
               </p>
-              <h2>{content.envelopeText}</h2>
+              <h2 className={content.envelopeText.includes(' & ') ? 'multi-line' : ''}>
+                {content.envelopeText.split(' & ').map((part, index, array) => (
+                  <React.Fragment key={index}>
+                    <span>{part}</span>
+                    {index < array.length - 1 && <span className="ampersand">&</span>}
+                  </React.Fragment>
+                ))}
+              </h2>
               <p>{content.subText}</p>
             </div>
           </Html>
