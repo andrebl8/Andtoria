@@ -6,6 +6,7 @@ const CeremonySection: React.FC = () => {
   return (
     <section className="ceremony-section">
       <h2>{ceremony.title}</h2>
+      <div className="decorative-divider">❧</div>
       <div className="section-content">
         <p><strong>{ceremony.timeLabel}</strong> {ceremony.time}</p>
         <p><strong>{ceremony.locationLabel}</strong> {ceremony.location}</p>

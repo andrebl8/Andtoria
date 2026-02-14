@@ -6,6 +6,7 @@ const GiftSection: React.FC = () => {
   return (
     <section className="gift-section">
       <h2>{gifts.title}</h2>
+      <div className="decorative-divider">❧</div>
       <div className="section-content">
         <p>{gifts.description}</p>
         <div className="gift-links">

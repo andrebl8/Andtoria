@@ -41,7 +41,7 @@ const LetterSection: React.FC<LetterSectionProps> = ({ guestName }) => {
       const count = 200;
       const defaults = {
         origin: { y: 0.7 },
-        colors: ['#121212', '#8B5E3C', '#FFFFFF', '#5D6D5E', '#A4947B'] // Ingensteds palette: Black, Wood, White, Green, Muted Brown
+        colors: ['#3d5a45', '#6b8e76', '#f4f1ea', '#a4947b', '#dcd6c8'] // Vintage palette: Dark Green, Muted Green, Cream, Muted Brown, Light Cream
       };
 
       const fire = (particleRatio: number, opts: any) => {

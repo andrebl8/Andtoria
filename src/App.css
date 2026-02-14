@@ -1,71 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
 :root {
-  --primary:  #30364F; /*#121212; */
-  --secondary: #4A4A4A; /* #4A4A4A  #ACBAC4*/
-  --accent: #8B5E3C; /* #8B5E3C */
-  --bg-main: #FFFFFF;
-  --bg-alt: #F8F8F8;
-  --tile-line: #E0E0E0;
-  --env-flap: #C5B69C;
-  --env-side: #B5A58C;
-  --env-bottom: #A4947B;
+  --primary: #3d5a45;
+  --secondary: #4a5a4d;
+  --accent: #6b8e76;
+  --bg-main: #f4f1ea;
+  --bg-alt: #ebe7de;
+  --tile-line: rgba(61, 90, 69, 0.1);
+  --env-flap: #dcd6c8;
+  --env-side: #cfc8b8;
+  --env-bottom: #c1baa8;
 }
 
 /* Global styles for the wedding page */
 .wedding-app {
   width: 100%;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   color: var(--primary);
   background-color: var(--bg-main);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background-image: 
+    url("https://www.transparenttextures.com/patterns/natural-paper.png"),
+    url('/background2.png');
+  background-attachment: scroll, fixed;
+  background-size: auto, cover;
+  background-position: center;
+  background-repeat: repeat, no-repeat;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.guest-greeting {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem !important;
+  color: var(--primary) !important;
+  text-transform: none !important;
+  letter-spacing: 0.03em !important;
+  margin-bottom: 40px !important;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  width: 100%;
+  max-width: 550px;
+}
+
+.guest-name {
+  font-style: italic;
+  font-weight: 700;
+  font-size: 3.2rem;
+  margin-left: 15px;
+  color: var(--primary);
+  line-height: 1;
+}
+
+
+.decorative-divider {
+  font-size: 2rem;
+  color: var(--primary);
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.decorative-divider::before,
+.decorative-divider::after {
+  content: "";
+  height: 1px;
+  width: 100px;
+  background-color: var(--accent);
+  opacity: 0.5;
 }
 
 .subway-tile {
-  background-color: #ffffff;
+  background-color: var(--bg-main);
   background-image: 
-    linear-gradient(var(--tile-line) 2px, transparent 2px),
-    linear-gradient(90deg, var(--tile-line) 2px, transparent 2px);
-  background-size: 100px 50px;
-  background-position: -2px -2px;
+    linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
-/* Ingensteds Logo Style */
+/* Ingensteds Logo Style - updated to match vintage look */
 .ingensteds-title {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: 800;
-  margin: 20px 0;
+  margin: 40px 0;
+}
+
+.ingensteds-title h1 {
+  margin: 10px 0;
+  padding: 0 20px;
+  font-size: 2.8rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
 }
 
 .ingensteds-title::before,
 .ingensteds-title::after {
-  content: "";
+  content: "❧";
   display: block;
-  width: 100%;
-  height: 6px;
-  background-color: var(--primary);
+  font-size: 1.5rem;
+  color: var(--primary);
   margin: 0;
-}
-
-.ingensteds-title h1 {
-  margin: 15px 0;
-  padding: 0 20px;
-  font-size: 4rem;
-  letter-spacing: 0.05em;
 }
 
 @media (max-width: 768px) {
   .ingensteds-title h1 {
-    font-size: 2.2rem;
-    margin: 10px 0;
-  }
-  
-  .ingensteds-title::before,
-  .ingensteds-title::after {
-    height: 4px;
+    font-size: 2rem;
   }
 }
 
@@ -78,6 +121,7 @@
   height: 100vh;
   z-index: 2000;
   background-color: var(--bg-main);
+  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,13 +140,25 @@
 .three-paper-content {
   background-color: var(--bg-main);
   padding: 40px;
-  border: 4px solid var(--primary);
-  box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
+  border: 1px solid var(--accent);
+  box-shadow: none;
   text-align: center;
   font-family: inherit;
   pointer-events: none;
   user-select: none;
   width: 300px;
+  position: relative;
+}
+
+.three-paper-content::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1px solid var(--accent);
+  pointer-events: none;
 }
 
 @media (max-width: 768px) {
@@ -131,12 +187,11 @@
 }
 
 .three-paper-content h2 {
-  text-transform: uppercase;
-  font-weight: 800;
-  font-size: 1.6rem;
+  font-weight: 400;
+  font-size: 1.8rem;
   margin: 0 0 10px 0;
   color: var(--primary);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
 }
 
 .three-paper-content p {
@@ -154,9 +209,8 @@
   text-align: center;
   color: var(--primary);
   font-family: inherit;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  font-weight: 400;
+  letter-spacing: 0.05em;
   z-index: 2001;
 }
 
@@ -180,17 +234,31 @@ section {
 }
 
 section h2 {
-  font-size: 3rem;
-  margin-bottom: 40px;
-  font-weight: 800;
-  text-transform: uppercase;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  font-weight: 400;
   color: var(--primary);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
 }
 
 .section-content {
   max-width: 700px;
   margin: 0 auto;
+  border: 1px solid var(--accent);
+  padding: 40px;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.section-content::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border: 1px solid var(--accent);
+  pointer-events: none;
 }
 
 .section-content p {
@@ -207,53 +275,70 @@ section h2 {
 
 /* Intro Section */
 .intro-section {
-  padding: 150px 20px;
-  background-color: var(--bg-main);
-  min-height: 80vh;
+  width: 95%;
+  max-width: 700px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 100px 20px;
+  box-sizing: border-box;
+  position: relative;
 }
+
 
 .intro-section p {
-  font-size: 1.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin: 20px 0;
-  color: var(--secondary);
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  margin: 10px 0;
+  color: var(--primary);
 }
 
-.intro-details {
+.intro-info-list {
   margin-top: 30px;
-  font-size: 1.4rem;
-  font-weight: 700;
-  text-transform: uppercase;
+  width: 100%;
+  max-width: 400px;
+  text-align: left;
 }
 
-.intro-details span {
-  display: inline-block;
+.intro-info-list p {
+  font-size: 1.1rem;
+  margin: 5px 0;
+  display: flex;
+  align-items: baseline;
 }
 
-.divider {
-  margin: 0 20px;
+.intro-info-list p span {
+  width: 60px;
+  font-weight: 400;
+  color: var(--primary);
+  opacity: 0.8;
+}
+
+.intro-info-list p::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px dotted var(--accent);
+  margin: 0 10px;
+  order: 2;
+}
+
+.intro-info-list p .value {
+  order: 3;
 }
 
 /* Ceremony & Party */
-.ceremony-section, .gift-section {
-  background-color: var(--primary);
-  color: #FFFFFF;
+.ceremony-section, .gift-section, .party-section, .rsvp-section {
+  background-color: transparent;
+  color: var(--primary);
 }
 
 .ceremony-section h2, .gift-section h2,
 .ceremony-section .section-content p, .gift-section .section-content p,
 .ceremony-section .section-content strong, .gift-section .section-content strong {
-  color: #FFFFFF;
-}
-
-.party-section, .rsvp-section {
-  background-color: var(--bg-main);
+  color: var(--primary);
 }
 
 /* Gift Section */
@@ -266,20 +351,18 @@ section h2 {
 
 .gift-button {
   padding: 15px 30px;
-  border: 4px solid #FFFFFF;
-  color: #FFFFFF;
+  border: 1px solid var(--primary);
+  color: var(--primary);
   text-decoration: none;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  font-weight: 400;
+  letter-spacing: 0.05em;
   transition: all 0.2s ease;
+  background-color: transparent;
 }
 
 .gift-button:hover {
-  background-color: #FFFFFF;
-  color: var(--primary);
-  transform: translate(-4px, -4px);
-  box-shadow: 4px 4px 0px var(--accent);
+  background-color: var(--primary);
+  color: var(--bg-main);
 }
 
 /* RSVP Section */
@@ -287,16 +370,28 @@ section h2 {
   max-width: 500px;
   margin: 0 auto;
   text-align: left;
-  border: 4px solid var(--primary);
+  border: 1px solid var(--accent);
   padding: 40px;
-  background-color: var(--bg-main);
+  background-color: rgba(255, 255, 255, 0.5);
+  position: relative;
+}
+
+.rsvp-form::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border: 1px solid var(--accent);
+  pointer-events: none;
 }
 
 .rsvp-names-group {
   margin-bottom: 25px;
-  background-color: var(--bg-alt);
+  background-color: rgba(255, 255, 255, 0.3);
   padding: 20px;
-  border: 2px solid var(--primary);
+  border: 1px solid var(--accent);
 }
 
 .rsvp-names-group .form-group:last-child {
@@ -310,10 +405,9 @@ section h2 {
 .form-group label {
   display: block;
   margin-bottom: 8px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  font-size: 1rem;
 }
 
 .form-group input[type="text"],
@@ -322,10 +416,19 @@ section h2 {
   width: 100%;
   padding: 12px;
   box-sizing: border-box;
-  border: 2px solid var(--primary);
-  background-color: white;
+  border: 1px solid var(--accent);
+  background-color: rgba(255, 255, 255, 0.5);
   font-family: inherit;
-  font-weight: 500;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.form-group input[type="text"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  background-color: white;
 }
 
 .form-group textarea {
@@ -336,9 +439,8 @@ section h2 {
   display: flex;
   align-items: center;
   cursor: pointer;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 0.9rem;
+  font-weight: 400;
+  font-size: 1rem;
 }
 
 .checkbox-group input {
@@ -352,20 +454,17 @@ section h2 {
   width: 100%;
   padding: 15px;
   background-color: var(--primary);
-  color: white;
+  color: var(--bg-main);
   border: none;
   cursor: pointer;
   font-size: 1.1rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  font-weight: 400;
+  letter-spacing: 0.05em;
   transition: all 0.2s ease;
 }
 
 .submit-button:hover {
   background-color: var(--accent);
-  transform: translate(-2px, -2px);
-  box-shadow: 4px 4px 0px var(--primary);
 }
 
 .submitted-message {
@@ -373,22 +472,55 @@ section h2 {
   background-color: var(--bg-alt);
   max-width: 600px;
   margin: 0 auto;
-  border: 4px solid var(--primary);
+  border: 1px solid var(--accent);
+  position: relative;
+}
+
+.submitted-message::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border: 1px solid var(--accent);
+  pointer-events: none;
+}
+
+.submitted-message h3 {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 15px;
+  font-weight: 400;
+}
+
+.deadline-text {
+  margin-bottom: 30px;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--accent);
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-  section {
-    padding: 80px 20px;
-  }
 
   section h2 {
     font-size: 2.2rem;
   }
 
   .intro-section {
-    padding: 100px 20px;
-    min-height: 60vh;
+    padding: 60px 20px;
+    margin: 0 auto;
+  }
+
+  .guest-greeting {
+    font-size: 1.4rem !important;
+    margin-bottom: 25px !important;
+  }
+
+  .guest-name {
+    font-size: 2.2rem;
   }
 
   .intro-section p {

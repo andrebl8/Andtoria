@@ -26,8 +26,8 @@ function App() {
 
   return (
     <div className="wedding-app">
-      <LetterSection guestName={joinedGuestNames} />
-      <div className="scroll-spacer" style={{ height: '150vh' }}></div>
+      {/* <LetterSection guestName={joinedGuestNames} />
+      <div className="scroll-spacer" style={{ height: '150vh' }}></div> */}
       <IntroSection guestName={joinedGuestNames} />
       <CeremonySection />
       <PartySection />

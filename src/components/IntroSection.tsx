@@ -8,25 +8,19 @@ interface IntroSectionProps {
 const IntroSection: React.FC<IntroSectionProps> = ({ guestName }) => {
   const { intro } = content;
   return (
-    <section className="intro-section subway-tile">
-      {guestName && (
-        <p style={{ 
-          fontSize: '1.4rem', 
-          marginBottom: '0', 
-          color: 'var(--accent)',
-          fontStyle: 'italic'
-        }}>
-          Hi {guestName}!
-        </p>
-      )}
+    <section className="intro-section">
+      <p className="guest-greeting">
+        Kjære gjest: <span className="guest-name">{guestName}</span>
+      </p>
       <div className="ingensteds-title">
         <h1>{intro.names}</h1>
       </div>
+      <div className="decorative-divider">❦</div>
       <p>{intro.tagline}</p>
-      <div className="intro-details">
-        <span>{intro.date}</span>
-        <span className="divider">|</span>
-        <span>{intro.location}</span>
+      <div className="intro-info-list">
+        <p><span>Dato:</span> <span className="value">{intro.date}</span></p>
+        <p><span>Sted:</span> <span className="value">{intro.location}</span></p>
+        <p><span>Tid:</span> <span className="value">{intro.time}</span></p>
       </div>
     </section>
   );

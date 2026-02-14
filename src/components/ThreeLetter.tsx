@@ -50,7 +50,7 @@ const ThreeLetter: React.FC<ThreeLetterProps> = ({ scrollProgress, content, isMo
       {/* Envelope Back */}
       <mesh position={[0, 0, 0]}>
         <planeGeometry args={[5, 3.5]} />
-        <meshStandardMaterial color="#FFFFFF" side={THREE.DoubleSide} />
+        <meshStandardMaterial color="#f4f1ea" side={THREE.DoubleSide} />
       </mesh>
 
       {/* Envelope Front (Left) */}
@@ -65,7 +65,7 @@ const ThreeLetter: React.FC<ThreeLetterProps> = ({ scrollProgress, content, isMo
             ]), 3]}
           />
         </bufferGeometry>
-        <meshStandardMaterial color="#B5A58C" side={THREE.DoubleSide} />
+        <meshStandardMaterial color="#cfc8b8" side={THREE.DoubleSide} />
       </mesh>
 
       {/* Envelope Front (Right) */}
@@ -80,7 +80,7 @@ const ThreeLetter: React.FC<ThreeLetterProps> = ({ scrollProgress, content, isMo
             ]), 3]}
           />
         </bufferGeometry>
-        <meshStandardMaterial color="#B5A58C" side={THREE.DoubleSide} />
+        <meshStandardMaterial color="#cfc8b8" side={THREE.DoubleSide} />
       </mesh>
 
       {/* Envelope Front (Bottom) */}
@@ -95,7 +95,7 @@ const ThreeLetter: React.FC<ThreeLetterProps> = ({ scrollProgress, content, isMo
             ]), 3]}
           />
         </bufferGeometry>
-        <meshStandardMaterial color="#A4947B" side={THREE.DoubleSide} />
+        <meshStandardMaterial color="#c1baa8" side={THREE.DoubleSide} />
       </mesh>
 
       {/* Envelope Flap */}
@@ -111,7 +111,7 @@ const ThreeLetter: React.FC<ThreeLetterProps> = ({ scrollProgress, content, isMo
               ]), 3]}
             />
           </bufferGeometry>
-          <meshStandardMaterial color="#C5B69C" side={THREE.DoubleSide} />
+          <meshStandardMaterial color="#dcd6c8" side={THREE.DoubleSide} />
         </mesh>
       </group>
 
@@ -140,7 +140,17 @@ const ThreeLetter: React.FC<ThreeLetterProps> = ({ scrollProgress, content, isMo
                 transition: 'opacity 0.2s',
               }}
             >
-              {guestName && <p style={{ marginBottom: '10px', fontStyle: 'italic', color: 'var(--accent)' }}>Dear {guestName},</p>}
+              <p style={{ 
+                marginBottom: '15px', 
+                fontStyle: 'italic', 
+                color: 'var(--primary)', 
+                fontSize: '1.4rem', 
+                fontWeight: '600',
+                display: 'inline-block',
+                paddingBottom: '5px'
+              }}>
+                Kjære {guestName || 'gjest'},
+              </p>
               <h2>{content.envelopeText}</h2>
               <p>{content.subText}</p>
             </div>

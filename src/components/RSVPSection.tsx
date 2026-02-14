@@ -57,10 +57,10 @@ const RSVPSection: React.FC<RSVPSectionProps> = ({ guestNames = [] }) => {
 
   if (submitted) {
     return (
-      <section className="rsvp-section subway-tile">
+      <section className="rsvp-section">
         <h2>{rsvp.title}</h2>
         <div className="submitted-message">
-          <h3 style={{ fontSize: '1.8rem', color: 'var(--primary)', marginBottom: '15px', fontWeight: 800, textTransform: 'uppercase' }}>{rsvp.thankYouTitle}</h3>
+          <h3>{rsvp.thankYouTitle}</h3>
           <p>
             {rsvp.thankYouMessage}
           </p>
@@ -70,10 +70,11 @@ const RSVPSection: React.FC<RSVPSectionProps> = ({ guestNames = [] }) => {
   }
 
   return (
-    <section className="rsvp-section subway-tile">
+    <section className="rsvp-section">
       <h2>{rsvp.title}</h2>
+      <div className="decorative-divider">❧</div>
       <div className="section-content">
-        <p style={{ marginBottom: '30px', fontWeight: 600 }}>
+        <p className="deadline-text">
           {rsvp.deadlineText}
         </p>
       </div>
