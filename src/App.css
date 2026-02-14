@@ -19,15 +19,27 @@
   margin: 0;
   padding: 0;
   color: var(--primary);
+  font-family: 'Cormorant Garamond', serif;
+  position: relative;
+  z-index: 0;
+}
+
+.wedding-app::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
   background-color: var(--bg-main);
   background-image: 
     url("/natural-paper.png"),
     url('/dodo-desktop.jpg');
-  background-attachment: scroll, fixed;
   background-size: auto, cover;
   background-position: center;
   background-repeat: repeat, no-repeat;
-  font-family: 'Cormorant Garamond', serif;
+  pointer-events: none;
 }
 
 .guest-greeting {
@@ -328,6 +340,7 @@ section h2 {
 
 .intro-info-list p .value {
   order: 3;
+  width: 50%;
 }
 
 /* Ceremony & Party */
@@ -505,7 +518,7 @@ section h2 {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-  .wedding-app {
+  .wedding-app::before {
     background-image: 
       url("/natural-paper.png"),
       url('/dodo-on-left.jpg');
