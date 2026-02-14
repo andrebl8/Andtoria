@@ -21,8 +21,8 @@
   color: var(--primary);
   background-color: var(--bg-main);
   background-image: 
-    url("https://www.transparenttextures.com/patterns/natural-paper.png"),
-    url('/dodo-desktop.png');
+    url("/natural-paper.png"),
+    url('/dodo-desktop.jpg');
   background-attachment: scroll, fixed;
   background-size: auto, cover;
   background-position: center;
@@ -121,7 +121,7 @@
   height: 100vh;
   z-index: 2000;
   background-color: var(--bg-main);
-  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+  background-image: url("/natural-paper.png");
   display: flex;
   justify-content: center;
   align-items: center;
@@ -299,7 +299,7 @@ section h2 {
 .intro-info-list {
   margin-top: 30px;
   width: 100%;
-  max-width: 400px;
+  max-width: 320px;
   text-align: left;
 }
 
@@ -323,6 +323,7 @@ section h2 {
   border-bottom: 1px dotted var(--accent);
   margin: 0 10px;
   order: 2;
+  opacity: 0.5;
 }
 
 .intro-info-list p .value {
@@ -506,8 +507,8 @@ section h2 {
 @media (max-width: 768px) {
   .wedding-app {
     background-image: 
-      url("https://www.transparenttextures.com/patterns/natural-paper.png"),
-      url('/dodo-on-left.png');
+      url("/natural-paper.png"),
+      url('/dodo-on-left.jpg');
   }
 
   section h2 {
