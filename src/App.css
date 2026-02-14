@@ -22,7 +22,7 @@
   background-color: var(--bg-main);
   background-image: 
     url("https://www.transparenttextures.com/patterns/natural-paper.png"),
-    url('/background2.png');
+    url('/dodo-on-left.png');
   background-attachment: scroll, fixed;
   background-size: auto, cover;
   background-position: center;
