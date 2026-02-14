@@ -10,9 +10,10 @@ interface ThreeLetterProps {
     subText: string;
   };
   isMobile: boolean;
+  guestName?: string;
 }
 
-const ThreeLetter: React.FC<ThreeLetterProps> = ({ scrollProgress, content, isMobile }) => {
+const ThreeLetter: React.FC<ThreeLetterProps> = ({ scrollProgress, content, isMobile, guestName }) => {
   const flapRef = useRef<THREE.Group>(null);
   const paperRef = useRef<THREE.Group>(null);
   const envelopeRef = useRef<THREE.Group>(null);
@@ -49,7 +50,7 @@ const ThreeLetter: React.FC<ThreeLetterProps> = ({ scrollProgress, content, isMo
       {/* Envelope Back */}
       <mesh position={[0, 0, 0]}>
         <planeGeometry args={[5, 3.5]} />
-        <meshStandardMaterial color="#F2E9DA" side={THREE.DoubleSide} />
+        <meshStandardMaterial color="#FFFFFF" side={THREE.DoubleSide} />
       </mesh>
 
       {/* Envelope Front (Left) */}
@@ -64,7 +65,7 @@ const ThreeLetter: React.FC<ThreeLetterProps> = ({ scrollProgress, content, isMo
             ]), 3]}
           />
         </bufferGeometry>
-        <meshStandardMaterial color="#D6C7AE" side={THREE.DoubleSide} />
+        <meshStandardMaterial color="#B5A58C" side={THREE.DoubleSide} />
       </mesh>
 
       {/* Envelope Front (Right) */}
@@ -79,7 +80,7 @@ const ThreeLetter: React.FC<ThreeLetterProps> = ({ scrollProgress, content, isMo
             ]), 3]}
           />
         </bufferGeometry>
-        <meshStandardMaterial color="#D6C7AE" side={THREE.DoubleSide} />
+        <meshStandardMaterial color="#B5A58C" side={THREE.DoubleSide} />
       </mesh>
 
       {/* Envelope Front (Bottom) */}
@@ -94,7 +95,7 @@ const ThreeLetter: React.FC<ThreeLetterProps> = ({ scrollProgress, content, isMo
             ]), 3]}
           />
         </bufferGeometry>
-        <meshStandardMaterial color="#C5B69C" side={THREE.DoubleSide} />
+        <meshStandardMaterial color="#A4947B" side={THREE.DoubleSide} />
       </mesh>
 
       {/* Envelope Flap */}
@@ -110,7 +111,7 @@ const ThreeLetter: React.FC<ThreeLetterProps> = ({ scrollProgress, content, isMo
               ]), 3]}
             />
           </bufferGeometry>
-          <meshStandardMaterial color="#E4D7C3" side={THREE.DoubleSide} />
+          <meshStandardMaterial color="#C5B69C" side={THREE.DoubleSide} />
         </mesh>
       </group>
 
@@ -119,7 +120,7 @@ const ThreeLetter: React.FC<ThreeLetterProps> = ({ scrollProgress, content, isMo
         <mesh>
           <planeGeometry args={[4.5, 3.2]} />
           <meshStandardMaterial
-            color="#FAF7F2"
+            color="#FFFFFF"
             transparent
             opacity={0}
             colorWrite={false}
@@ -139,6 +140,7 @@ const ThreeLetter: React.FC<ThreeLetterProps> = ({ scrollProgress, content, isMo
                 transition: 'opacity 0.2s',
               }}
             >
+              {guestName && <p style={{ marginBottom: '10px', fontStyle: 'italic', color: 'var(--accent)' }}>Dear {guestName},</p>}
               <h2>{content.envelopeText}</h2>
               <p>{content.subText}</p>
             </div>

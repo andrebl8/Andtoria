@@ -4,7 +4,7 @@ import content from '../data/weddingContent.json';
 const PartySection: React.FC = () => {
   const { party } = content;
   return (
-    <section className="party-section">
+    <section className="party-section subway-tile">
       <h2>{party.title}</h2>
       <div className="section-content">
         <p><strong>{party.timeLabel}</strong> {party.time}</p>

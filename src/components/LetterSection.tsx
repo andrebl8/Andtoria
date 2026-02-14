@@ -1,11 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { PerspectiveCamera, Float } from '@react-three/drei';
+import { PerspectiveCamera, Float, Environment } from '@react-three/drei';
 import confetti from 'canvas-confetti';
 import content from '../data/weddingContent.json';
 import ThreeLetter from './ThreeLetter';
 
-const LetterSection: React.FC = () => {
+interface LetterSectionProps {
+  guestName?: string;
+}
+
+const LetterSection: React.FC<LetterSectionProps> = ({ guestName }) => {
   const { letter } = content;
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -37,7 +41,7 @@ const LetterSection: React.FC = () => {
       const count = 200;
       const defaults = {
         origin: { y: 0.7 },
-        colors: ['#30364F', '#D6C7AE', '#F2E9DA', '#E4D7C3', '#C5B69C', '#FAF7F2'] // Updated to natural palette
+        colors: ['#121212', '#8B5E3C', '#FFFFFF', '#5D6D5E', '#A4947B'] // Ingensteds palette: Black, Wood, White, Green, Muted Brown
       };
 
       const fire = (particleRatio: number, opts: any) => {
@@ -80,7 +84,7 @@ const LetterSection: React.FC = () => {
     }
   }, [scrollProgress]);
 
-  const opacity = scrollProgress > 0.8 ? 1 - (scrollProgress - 0.8) * 5 : 1;
+  const opacity = scrollProgress > 0.5 ? 1 - (scrollProgress - 0.5) * 5 : 1;
   const cameraZ = isMobile ? 12 : 8;
 
   if (scrollProgress >= 1) return null;
@@ -105,7 +109,7 @@ const LetterSection: React.FC = () => {
           <directionalLight position={[-6, 4, -6]} intensity={0.6} />
 
           {/* The HDRI is great for reflections, but can darken perceived albedo if it's too strong */}
-          {/*<Environment preset="studio" environmentIntensity={0.35} />*/}
+          <Environment preset="studio" environmentIntensity={0.35} />
 
           <Float 
             speed={2} 
@@ -113,7 +117,12 @@ const LetterSection: React.FC = () => {
             floatIntensity={0.5}
             enabled={scrollProgress < 0.1} // Only float when not scrolling much
           >
-            <ThreeLetter scrollProgress={scrollProgress} content={letter} isMobile={isMobile} />
+            <ThreeLetter 
+              scrollProgress={scrollProgress} 
+              content={letter} 
+              isMobile={isMobile} 
+              guestName={guestName}
+            />
           </Float>
         </Canvas>
       </div>

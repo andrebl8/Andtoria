@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import content from '../data/weddingContent.json';
 
-const RSVPSection: React.FC = () => {
+interface RSVPSectionProps {
+  guestNames?: string[];
+}
+
+const RSVPSection: React.FC<RSVPSectionProps> = ({ guestNames = [] }) => {
   const { rsvp } = content;
   const [name, setName] = useState('');
   const [attending, setAttending] = useState('yes');
@@ -9,6 +13,21 @@ const RSVPSection: React.FC = () => {
   const [hasPlusOne, setHasPlusOne] = useState(false);
   const [plusOneName, setPlusOneName] = useState('');
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (guestNames.length > 0) {
+      setName(guestNames[0]);
+      
+      if (guestNames.length > 1) {
+        setHasPlusOne(true);
+        const others = guestNames.slice(1);
+        const joinedOthers = others.length === 1 
+          ? others[0] 
+          : others.slice(0, -1).join(', ') + ' & ' + others[others.length - 1];
+        setPlusOneName(joinedOthers);
+      }
+    }
+  }, [guestNames]);
 
   const encode = (data: { [key: string]: any }) => {
     return Object.keys(data)
@@ -38,10 +57,10 @@ const RSVPSection: React.FC = () => {
 
   if (submitted) {
     return (
-      <section className="rsvp-section">
+      <section className="rsvp-section subway-tile">
         <h2>{rsvp.title}</h2>
         <div className="submitted-message">
-          <h3 style={{ fontSize: '1.8rem', color: '#30364F', marginBottom: '15px' }}>{rsvp.thankYouTitle}</h3>
+          <h3 style={{ fontSize: '1.8rem', color: 'var(--primary)', marginBottom: '15px', fontWeight: 800, textTransform: 'uppercase' }}>{rsvp.thankYouTitle}</h3>
           <p>
             {rsvp.thankYouMessage}
           </p>
@@ -51,10 +70,10 @@ const RSVPSection: React.FC = () => {
   }
 
   return (
-    <section className="rsvp-section">
+    <section className="rsvp-section subway-tile">
       <h2>{rsvp.title}</h2>
       <div className="section-content">
-        <p style={{ marginBottom: '30px' }}>
+        <p style={{ marginBottom: '30px', fontWeight: 600 }}>
           {rsvp.deadlineText}
         </p>
       </div>
@@ -66,17 +85,34 @@ const RSVPSection: React.FC = () => {
         className="rsvp-form"
       >
         <input type="hidden" name="form-name" value="rsvp" />
-        <div className="form-group">
-          <label htmlFor="name">{rsvp.fullNameLabel}</label>
-          <input 
-            type="text" 
-            id="name" 
-            name="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required 
-          />
+        <div className={hasPlusOne ? "rsvp-names-group" : ""}>
+          <div className="form-group">
+            <label htmlFor="name">{rsvp.fullNameLabel}</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required 
+            />
+          </div>
+
+          {hasPlusOne && (
+            <div className="form-group">
+              <label htmlFor="plusOneName">{rsvp.fullNameLabel}</label>
+              <input 
+                type="text" 
+                id="plusOneName" 
+                name="plusOneName"
+                value={plusOneName}
+                onChange={(e) => setPlusOneName(e.target.value)}
+                required={hasPlusOne}
+              />
+            </div>
+          )}
         </div>
+
         <div className="form-group" style={{ marginBottom: '20px' }}>
           <label>{rsvp.attendingLabel}</label>
           <select 
@@ -91,29 +127,17 @@ const RSVPSection: React.FC = () => {
         
         {attending === 'yes' && (
           <>
-            <div className="form-group">
-              <label className="checkbox-group">
-                <input 
-                  type="checkbox" 
-                  name="plusOne"
-                  checked={hasPlusOne}
-                  onChange={(e) => setHasPlusOne(e.target.checked)}
-                />
-                {rsvp.plusOneLabel}
-              </label>
-            </div>
-
-            {hasPlusOne && (
+            {guestNames.length !== 1 && guestNames.length !== 2 && (
               <div className="form-group">
-                <label htmlFor="plusOneName">{rsvp.guestNameLabel}</label>
-                <input 
-                  type="text" 
-                  id="plusOneName" 
-                  name="plusOneName"
-                  value={plusOneName}
-                  onChange={(e) => setPlusOneName(e.target.value)}
-                  required={hasPlusOne}
-                />
+                <label className="checkbox-group">
+                  <input 
+                    type="checkbox" 
+                    name="plusOne"
+                    checked={hasPlusOne}
+                    onChange={(e) => setHasPlusOne(e.target.checked)}
+                  />
+                  {rsvp.plusOneLabel}
+                </label>
               </div>
             )}
 
