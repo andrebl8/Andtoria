@@ -9,26 +9,30 @@
   },
   "intro": {
     "names": "Victoria & André",
+    "welcomeText": "Hjertelig velkommen til vår bryllupsfeiring!",
     "tagline": "skal gifte seg!",
     "date": "22. august 2026",
-    "location": "Oslo, Norway",
-    "time": "2:00 PM"
+    "location": "Oslo",
+    "time": "14:00"
   },
   "ceremony": {
-    "title": "The Ceremony",
-    "timeLabel": "Time:",
-    "time": "2:00 PM",
-    "locationLabel": "Location:",
-    "location": "City Hall Chapel",
-    "description": "Please join us as we exchange our vows in an intimate ceremony. The chapel is located in the heart of the city with beautiful views of the water."
+    "title": "Vielse",
+    "timeLabel": "Oppmøte:",
+    "time": "14:00",
+    "locationLabel": "Sted:",
+    "location": "Thorvald Meyers gate 31, 0555 Oslo",
+    "description": "Vielsen er i Paulus kirke. "
   },
   "party": {
-    "title": "The Celebration",
+    "title": "Bryllupsfest",
     "timeLabel": "Time:",
-    "time": "6:00 PM - Late",
-    "locationLabel": "Location:",
-    "location": "Grand Ballroom, The Grand Hotel",
-    "description": "After the ceremony, we'll move to the Grand Hotel for dinner, drinks, and dancing! Be ready to party the night away with us."
+    "time": "16:00",
+    "locationLabel": "Sted:",
+    "location": "Ingensteds, Brenneriveien 9, 0182 Oslo",
+    "description": "Etter vielsen går vi samlet fra Paulus kirke til Ingensteds. Det tar omtrent 10 minutter å gå.",
+    "description1": "Ved ankomst er det tid for litt forfriskninger og mingling før vi fortsetter med middag og fest.  ",
+    "description2": "Ta med dansesko, dette blir en skikkelig fest til langt på  natt",
+    "toastmasterInfo": "Her kommer info om toastmasters"
   },
   "gifts": {
     "title": "Gifts",

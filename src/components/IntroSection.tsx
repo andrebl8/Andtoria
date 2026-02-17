@@ -25,15 +25,7 @@ const IntroSection: React.FC<IntroSectionProps> = ({ guestName }) => {
           )}
         </p>
         <div className="ingensteds-title">
-          <h1 className={intro.names.includes(' & ') ? 'multi-line' : ''}>
-            {intro.names.split(' & ').map((part, index, array) => (
-              <React.Fragment key={index}>
-                <span>{part}</span>
-                {index < array.length - 1 && <span className="ampersand">&</span>}
-              </React.Fragment>
-            ))}
-          </h1>
-          <p>{intro.tagline}</p>
+          <p>{intro.welcomeText}</p>
         </div>
         <div className="decorative-divider">❦</div>
 

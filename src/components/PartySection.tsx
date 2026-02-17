@@ -11,6 +11,9 @@ const PartySection: React.FC = () => {
         <p><strong>{party.timeLabel}</strong> {party.time}</p>
         <p><strong>{party.locationLabel}</strong> {party.location}</p>
         <p>{party.description}</p>
+        <p>{party.description1}</p>
+        <p>{party.description2}</p>
+        <p>{party.toastmasterInfo}</p>
       </div>
     </section>
   );

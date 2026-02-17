@@ -45,11 +45,11 @@
 
 .guest-greeting {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.8rem !important;
+  font-size: 40px !important;
   color: var(--primary) !important;
   text-transform: none !important;
   letter-spacing: 0.03em !important;
-  margin: 0 auto 40px auto !important;
+  /*margin: 0 auto 40px auto !important;*/
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,7 +68,7 @@
 .guest-name {
   font-style: italic;
   font-weight: 700;
-  font-size: 3.2rem;
+  font-size: 40px;
   margin-left: 15px;
   color: var(--primary);
   line-height: 1;
@@ -82,7 +82,7 @@
 }
 
 .ampersand {
-  font-size: 0.75em;
+  font-size: 40px;
   font-weight: 400;
   font-style: italic;
   margin: 8px 12px;
@@ -92,7 +92,7 @@
 
 
 .decorative-divider {
-  font-size: 2rem;
+  font-size: 40px;
   color: var(--primary);
   margin: 20px 0;
   display: flex;
@@ -123,29 +123,27 @@
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  margin: 40px 0;
 }
 
-.ingensteds-title h1 {
+.ingensteds-title h2 {
   margin: 10px 0;
   padding: 0 20px;
-  font-size: 2.8rem;
+  font-size: 40px;
   font-weight: 400;
   letter-spacing: 0.02em;
 }
 
-.ingensteds-title::before,
-.ingensteds-title::after {
+.ingensteds-title::before{
   content: "❧";
   display: block;
-  font-size: 1.5rem;
+  font-size: 40px;
   color: var(--primary);
   margin: 0;
 }
 
 @media (max-width: 768px) {
-  .ingensteds-title h1 {
-    font-size: 2rem;
+  .ingensteds-title h2 {
+    font-size: 32px;
   }
 }
 
@@ -272,7 +270,8 @@ section {
 
 section h2 {
   font-size: 2.5rem;
-  margin-bottom: 30px;
+  margin-bottom: 0;
+  margin-top: 0;
   font-weight: 400;
   color: var(--primary);
   letter-spacing: 0.02em;
@@ -378,6 +377,10 @@ section h2 {
   letter-spacing: 0.05em;
   margin: 10px 0;
   color: var(--primary);
+}
+
+.ingensteds-title p {
+  font-size: 40px;
 }
 
 .intro-info-list {
@@ -621,9 +624,9 @@ section h2 {
   }
 
   .guest-greeting {
-    font-size: 1.4rem !important;
+    font-size: 32px !important;
     /*margin: 0 auto 25px auto !important;*/
-    margin-bottom: 25px !important;
+    /*margin-bottom: 25px !important;*/
   }
 
   .guest-greeting.multi-line {
@@ -631,11 +634,22 @@ section h2 {
   }
 
   .guest-name {
-    font-size: 2.2rem;
+    font-size: 32px;
+  }
+
+  .ampersand,
+  .decorative-divider,
+  .ingensteds-title::before,
+  .ingensteds-title::after {
+    font-size: 32px;
   }
 
   .intro-section p {
     font-size: 1.2rem;
+  }
+
+  .ingensteds-title p {
+    font-size: 32px;
   }
 
   .intro-details {
