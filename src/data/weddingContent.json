@@ -35,11 +35,11 @@
     "toastmasterInfo": "Her kommer info om toastmasters"
   },
   "gifts": {
-    "title": "Gifts",
-    "description": "Your presence at our wedding is the greatest gift of all. However, if you wish to honor us with a gift, we have a registry at the following store or a honeymoon fund contribution would be greatly appreciated.",
-    "registryButton": "View Registry",
+    "title": "Gaver",
+    "description": "Din tilstedeværelse i bryllupet vårt er den største gaven av alle. Men hvis du ønsker å hedre oss med en gave, har vi en ønskeliste eller et bidrag til bryllupsreisen vil settes stor pris på.",
+    "registryButton": "Se ønskeliste",
     "registryUrl": "#",
-    "honeymoonButton": "Honeymoon Fund",
+    "honeymoonButton": "Bryllupsreisefond",
     "honeymoonUrl": "#"
   },
   "rsvp": {
