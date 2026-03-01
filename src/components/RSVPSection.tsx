@@ -13,6 +13,7 @@ const RSVPSection: React.FC<RSVPSectionProps> = ({ guestNames = [] }) => {
   const [hasPlusOne, setHasPlusOne] = useState(false);
   const [plusOneName, setPlusOneName] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [attendingGuest, setAttendingGuest] = useState('');
 
   useEffect(() => {
     if (guestNames.length > 0) {
@@ -25,6 +26,7 @@ const RSVPSection: React.FC<RSVPSectionProps> = ({ guestNames = [] }) => {
           ? others[0] 
           : others.slice(0, -1).join(', ') + ' & ' + others[others.length - 1];
         setPlusOneName(joinedOthers);
+        setAttendingGuest(guestNames[0]);
       }
     }
   }, [guestNames]);
@@ -43,7 +45,8 @@ const RSVPSection: React.FC<RSVPSectionProps> = ({ guestNames = [] }) => {
       body: encode({ 
         "form-name": "rsvp", 
         name, 
-        attending, 
+        attending,
+        attendingGuest: attending === 'only-one' ? attendingGuest : '',
         plusOne: hasPlusOne ? 'yes' : 'no',
         plusOneName,
         allergies 
@@ -121,12 +124,37 @@ const RSVPSection: React.FC<RSVPSectionProps> = ({ guestNames = [] }) => {
             value={attending}
             onChange={(e) => setAttending(e.target.value)}
           >
-            <option value="yes">{rsvp.attendingYes}</option>
-            <option value="no">{rsvp.attendingNo}</option>
+            {guestNames.length === 2 ? (
+              <>
+                <option value="yes">{rsvp.attendingYes}</option>
+                <option value="only-one">{rsvp.attendingOnlyOne}</option>
+                <option value="no">{rsvp.attendingNoPlural}</option>
+              </>
+            ) : (
+              <>
+                <option value="yes">{rsvp.attendingYesSingle}</option>
+                <option value="no">{rsvp.attendingNo}</option>
+              </>
+            )}
           </select>
         </div>
+
+        {attending === 'only-one' && guestNames.length === 2 && (
+          <div className="form-group" style={{ marginBottom: '20px' }}>
+            <label>{rsvp.attendingWhoLabel}</label>
+            <select
+              name="attendingGuest"
+              value={attendingGuest}
+              onChange={(e) => setAttendingGuest(e.target.value)}
+            >
+              {guestNames.map((guest) => (
+                <option key={guest} value={guest}>{guest}</option>
+              ))}
+            </select>
+          </div>
+        )}
         
-        {attending === 'yes' && (
+        {(attending === 'yes' || attending === 'only-one') && (
           <>
             {guestNames.length !== 1 && guestNames.length !== 2 && (
               <div className="form-group">

@@ -44,17 +44,21 @@
   },
   "rsvp": {
     "title": "RSVP",
-    "deadlineText": "Please let us know if you can make it by July 1st, 2026.",
-    "thankYouTitle": "Thank you!",
-    "thankYouMessage": "We've received your RSVP. We can't wait to see you!",
-    "fullNameLabel": "Full Name",
-    "attendingLabel": "Will you be attending?",
-    "attendingYes": "Yes, I'll be there!",
-    "attendingNo": "Sadly, I can't make it",
-    "plusOneLabel": "Bringing a guest?",
-    "guestNameLabel": "Guest's Full Name",
-    "allergiesLabel": "Allergies / Dietary Requirements",
-    "allergiesPlaceholder": "e.g. Vegetarian, Nut allergy...",
-    "submitButton": "Submit RSVP"
+    "deadlineText": "Vennligst gi oss beskjed innen 1. juli 2026.",
+    "thankYouTitle": "Tusen takk!",
+    "thankYouMessage": "Vi har mottatt din RSVP. Vi gleder oss til å se deg!",
+    "fullNameLabel": "Fullt navn",
+    "attendingLabel": "Kommer du?",
+    "attendingYes": "Ja, vi kommer begge!",
+    "attendingYesSingle": "Ja, jeg kommer!",
+    "attendingNo": "Dessverre kan jeg ikke komme",
+    "attendingNoPlural": "Dessverre kan vi ikke komme",
+    "attendingOnlyOne": "Kun én av oss kan komme",
+    "attendingWhoLabel": "Hvem kommer?",
+    "plusOneLabel": "Tar du med en gjest?",
+    "guestNameLabel": "Gjestens fulle navn",
+    "allergiesLabel": "Allergier / Kostholdskrav",
+    "allergiesPlaceholder": "f.eks. Vegetar, Nøtteallergi...",
+    "submitButton": "Send RSVP"
   }
 }
